@@ -9,4 +9,4 @@ while result < number:
     if result > number:
         break
     else:
-        print(result, sep='', end=' ')
+        print(result, end=', ')
