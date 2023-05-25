@@ -40,3 +40,15 @@ def print_operation_table(operation, num_rows, num_columns):
         print("\n")
 
 print_operation_table(lambda x, y: x * y, 6, 6)
+
+# num_rows = 6
+# num_cols = 6
+# for i in range(num_rows):
+#     print(list(map(lambda a: (a + 1) * (i + 1), range(num_cols))))
+# print(*[f'{list(map(lambda a: (a + 1) * (i + 1), range(num_cols)))}\n' for i in range(num_rows)])
+# print(list(map(lambda x, y: (x + 1) * (y + 1), range(num_cols), range(num_rows)))) 
+
+# for i in range(num_rows):
+#     print(' '.join(list(map(lambda a: str((a + 1) * (i + 1)), range(num_cols)))))
+
+# print((lambda x, y: x * y)(list(map(lambda a: (a + 1), range(num_cols))), 2), end=' ')
