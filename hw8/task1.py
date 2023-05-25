@@ -108,39 +108,22 @@ def single_or_multy_search(text, num=None):
             else:
                 return list(filter(lambda usr: search in (usr.lower().split())[num], file))
 
-def modify_user():
-    menu_search('Характеристика поиска для редактирования:')
+def delete_modify_user(modify = None):
+    menu_search('Характеристика поиска:')
     search_choose_list = ['фамилию', 'имя', 'отчество', 'телефон']
     while True:
         match action := input('\nВыберите опцию поиска - '):
             case num if action.isdigit() and int(num) in range(1,5):
-                delete_modif_func(single_or_multy_search(f'Введите {search_choose_list[int(num) - 1]} - ', (int(num) - 1)), 'm')
-                menu_search('Характеристика поиска для редактирования:')
+                delete_modif_func(single_or_multy_search(f'Введите {search_choose_list[int(num) - 1]} - ', (int(num) - 1)), modify)
+                menu_search('Характеристика поиска:')
             case '5':
-                delete_modif_func(single_or_multy_search('Введите ключевое(ые) слово(а) - '), 'm')                                                                                                                                       
-                menu_search('Характеристика поиска для редактирования:')
+                delete_modif_func(single_or_multy_search('Введите ключевое(ые) слово(а) - '), modify)                                                                                                                                       
+                menu_search('Характеристика поиска:')
             case '6' | 'выход' | 'quit' | 'exit' | 'menu' | 'main' | 'main menu' | 'menu main' | 'ds[jl':
                 break
             case _:
                 horiz_line('Нет такой функции!')
-                menu_search('Характеристика поиска для редактирования:')
-
-def delete_user():
-    menu_search('Характеристика поиска для удаления:')
-    search_choose_list = ['фамилию', 'имя', 'отчество', 'телефон']
-    while True:
-        match action := input('\nВыберите опцию поиска - '):
-            case num if action.isdigit() and int(num) in range(1,5):
-                delete_modif_func(single_or_multy_search(f'Введите {search_choose_list[int(num) - 1]} - ', (int(num) - 1)))
-                menu_search('Характеристика поиска для удаления:')
-            case '5':
-                delete_modif_func(single_or_multy_search('Введите ключевое(ые) слово(а) - '))                                                                                                                                       
-                menu_search('Характеристика поиска для удаления:')
-            case '6' | 'выход' | 'quit' | 'exit' | 'menu' | 'main' | 'main menu' | 'menu main' | 'ds[jl':
-                break
-            case _:
-                horiz_line('Нет такой функции!')
-                menu_search('Характеристика поиска для удаления:')
+                menu_search('Характеристика поиска:')
          
 def search_user():
     menu_search('Характеристика для поиска:')
@@ -210,10 +193,10 @@ def menu_main():
                 search_user()
                 menu_main_info()
             case '4' | 'удалить' | 'del' | 'delete':
-                delete_user()
+                delete_modify_user()
                 menu_main_info()
             case '5' | 'редактировать' | 'modify' | 'edit':
-                modify_user()
+                delete_modify_user('m')
                 menu_main_info()
             case '6' | 'выход' | 'quit' | 'exit' | 'ds[jl':
                 break
@@ -222,3 +205,17 @@ def menu_main():
                 menu_main_info()
 
 menu_main()
+
+# def delete_modify_user(text, modify=None):
+#     menu_search_list = [text,
+#                         '1. По фамилии',
+#                         '2. По имени',
+#                         '3. По отчеству',
+#                         '4. По телефону',
+#                         '5. Любое совпадение',
+#                         '6. В главное меню']
+#     print(*map(lambda a: f'\n{a} ', menu_search_list))
+# # input('Характеристика поиска для' + ' редактирования - ' if modify == 'm' else ' удаления - ')
+
+# delete_modify_user('Характеристика поиска для' + ' редактирования - ' if modify == 'm' else ' удаления - ' ,'m')
+# delete_modify_user('Характеристика поиска для' + ' редактирования - ' if modify == 'm' else ' удаления - ')
