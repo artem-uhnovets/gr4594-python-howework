@@ -205,17 +205,3 @@ def menu_main():
                 menu_main_info()
 
 menu_main()
-
-# def delete_modify_user(text, modify=None):
-#     menu_search_list = [text,
-#                         '1. По фамилии',
-#                         '2. По имени',
-#                         '3. По отчеству',
-#                         '4. По телефону',
-#                         '5. Любое совпадение',
-#                         '6. В главное меню']
-#     print(*map(lambda a: f'\n{a} ', menu_search_list))
-# # input('Характеристика поиска для' + ' редактирования - ' if modify == 'm' else ' удаления - ')
-
-# delete_modify_user('Характеристика поиска для' + ' редактирования - ' if modify == 'm' else ' удаления - ' ,'m')
-# delete_modify_user('Характеристика поиска для' + ' редактирования - ' if modify == 'm' else ' удаления - ')
